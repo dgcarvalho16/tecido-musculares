@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tecidos musculares | Estudo de Biologia</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf4f2;--card:#fff;--ink:#2b1519;--mut:#6e4f55;--acc:#b0243c;--acc2:#1d7773;--line:#ecd5d5;--soft:#f7e6e6;--ok:#1f7a4d;--bad:#b3261e;--fib:#d9566b;--fib2:#8f1d33;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#160b0e;--card:#22121a;--ink:#f6e8ea;--mut:#c4a2a9;--acc:#ff7b92;--acc2:#5fd3cb;--line:#42252d;--soft:#2c171e;--ok:#6bd39b;--bad:#ff8a80;--fib:#e0687d;--fib2:#ff9db0;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Nunito,system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 60px}
+header{padding:22px 0 8px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px;color:var(--mut);font-weight:600}
+button{font:inherit;cursor:pointer;color:inherit}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}
+h1{font:800 clamp(2.2rem,7vw,3.6rem)/1.05 Fraunces,Georgia,serif;margin:18px 0 6px;color:var(--acc)}
+h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2}
+.lead{max-width:60ch;margin:0 0 14px;color:var(--mut)}
+.fibre{display:block;width:100%;height:auto;border-radius:18px;border:1.5px solid var(--line);background:var(--soft)}
+nav{display:flex;gap:6px;flex-wrap:wrap;margin:18px 0;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;z-index:5}
+nav button{border:1.5px solid var(--line);background:var(--card);border-radius:12px 12px 4px 4px;padding:9px 16px;font-weight:700}
+nav button[aria-selected="true"]{background:var(--acc);border-color:var(--acc);color:#fff}
+section{display:none}section.on{display:block}
+details{background:var(--card);border:1.5px solid var(--line);border-left:6px solid var(--fib);border-radius:6px 16px 16px 6px;margin:12px 0;padding:0 18px}
+summary{cursor:pointer;font:700 1.1rem Fraunces,Georgia,serif;padding:14px 0}
+details[open]{border-left-color:var(--acc2)}
+details p,details ul{margin:0 0 14px}
+details li{margin:4px 0}
+.tip{background:var(--soft);border-radius:12px;padding:10px 14px;margin:0 0 14px}
+table{border-collapse:collapse;width:100%;margin:0 0 14px;font-size:.95rem}
+.sc{overflow-x:auto}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--soft)}
+figure{margin:18px 0;background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:14px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{color:var(--mut);font-size:.95rem;margin-top:8px}
+.vid{background:var(--card);border:1.5px solid var(--line);border-radius:18px;padding:22px}
+.btn{display:inline-block;background:var(--acc);color:#fff;text-decoration:none;font-weight:800;border-radius:12px;padding:12px 20px}
+.q{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:16px 18px;margin:14px 0}
+.q h3{margin:0 0 4px;font-size:1.05rem;color:var(--acc2)}
+.q p{margin:6px 0 10px}
+.o{display:block;width:100%;text-align:left;background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:9px 12px;margin:6px 0}
+.o:hover:not(:disabled){border-color:var(--acc2)}
+.o.ok{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 18%,var(--card))}
+.o.no{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 18%,var(--card))}
+.ex{margin:10px 0 0;font-size:.95rem;color:var(--mut)}
+.score{position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);background:var(--soft);border-radius:12px;padding:8px 14px;font-weight:800;z-index:4;display:flex;justify-content:space-between;align-items:center}
+.score button{background:none;border:1.5px solid var(--line);border-radius:8px;padding:2px 10px}
+@media (prefers-reduced-motion:no-preference){.pulse{animation:p 3.2s ease-in-out infinite;transform-origin:center}@keyframes p{50%{transform:scaleX(.9)}}}
+.sw{display:inline-flex;align-items:center;gap:10px;font-weight:700;position:relative;cursor:pointer;color:var(--ink)}
+.sw input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.sw i{width:46px;height:26px;border-radius:99px;background:var(--line);position:relative;transition:background .2s}
+.sw i::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px #0005;transition:transform .2s}
+.sw input:checked+i{background:var(--acc2)}
+.sw input:checked+i::after{transform:translateX(20px)}
+.sw input:focus-visible+i{outline:3px solid var(--acc2);outline-offset:2px}
+.fc{display:flex;flex-direction:column;justify-content:center;gap:10px;width:100%;min-height:230px;text-align:center;font:600 1.2rem/1.5 Nunito,system-ui,sans-serif;color:var(--ink);background:var(--card);border:2px solid var(--line);border-radius:20px;padding:28px 22px}
+.fc small{color:var(--acc2);font-weight:800}
+.fc.back{background:var(--soft);border-color:var(--acc2)}
+.fnav{display:flex;gap:8px;justify-content:center;align-items:center;flex-wrap:wrap;margin:14px 0}
+.fnav button{border:1.5px solid var(--line);background:var(--card);border-radius:10px;padding:8px 16px;font-weight:700}
+.fcount{color:var(--mut);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="top"><span>Biologia, Capítulo 15</span><label class="sw"><span>Modo escuro</span><input type="checkbox" id="tb" role="switch" aria-label="Modo escuro"><i></i></label></div>
+<h1>Tecidos musculares</h1>
+<p class="lead">Resumos em palavras simples, desenhos, vídeo e exercícios para você treinar. Tudo feito com base no material do capítulo.</p>
+<svg class="fibre" viewBox="0 0 800 90" role="img" aria-label="Fibra muscular com estrias e núcleos">
+<defs><pattern id="st" width="40" height="90" patternUnits="userSpaceOnUse"><rect width="40" height="90" fill="var(--fib)"/><rect x="14" width="12" height="90" fill="var(--fib2)"/></pattern></defs>
+<rect class="pulse" x="10" y="14" width="780" height="62" rx="31" fill="url(#st)"/>
+<g fill="var(--acc2)"><ellipse cx="120" cy="20" rx="14" ry="6"/><ellipse cx="330" cy="70" rx="14" ry="6"/><ellipse cx="520" cy="20" rx="14" ry="6"/><ellipse cx="690" cy="70" rx="14" ry="6"/></g>
+</svg>
+</header>
+
+<nav role="tablist">
+<button role="tab" data-t="resumos" type="button">Resumos</button>
+<button role="tab" data-t="video" type="button">Vídeo</button>
+<button role="tab" data-t="flashcards" type="button">Flashcards</button>
+<button role="tab" data-t="exercicios" type="button">Exercícios</button>
+</nav>
+
+<section id="resumos">
+<details open><summary>1. O que são os tecidos musculares</summary>
+<p>São feitos de células compridas chamadas <b>fibras musculares</b> (ou <b>miócitos</b>). Elas conseguem <b>contrair</b> (encurtar) e <b>distender</b> (voltar ao tamanho normal). Juntas, formam os músculos.</p>
+<ul><li>Fazem todos os movimentos do corpo, voluntários ou involuntários.</li><li>Também sustentam o corpo, produzem calor e ajudam a movimentar substâncias dentro do organismo.</li><li>A contração acontece por causa de duas proteínas: <b>actina</b> e <b>miosina</b>. Juntas, formam os <b>miofilamentos</b>.</li><li>Os miofilamentos se juntam em feixes chamados <b>miofibrilas</b>, que também têm <b>troponina</b> e <b>tropomiosina</b>.</li></ul>
+<div class="tip"><b>Nomes especiais:</b> sarcolema = membrana da célula; sarcoplasma = citoplasma; retículo sarcoplasmático = guarda os íons cálcio (necessários para contrair); túbulos T = dobras do sarcolema para dentro da célula.</div>
+<figure><svg viewBox="0 0 420 190" role="img" aria-label="Esquema de uma fibra muscular em corte">
+<defs><pattern id="s3" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="14" height="10" fill="var(--fib)"/><rect x="5" width="4" height="10" fill="var(--fib2)"/></pattern></defs>
+<rect x="20" y="30" width="250" height="130" rx="22" fill="var(--soft)" stroke="var(--acc)" stroke-width="4"/>
+<g fill="url(#s3)"><rect x="40" y="46" width="210" height="16" rx="8"/><rect x="40" y="74" width="210" height="16" rx="8"/><rect x="40" y="102" width="210" height="16" rx="8"/><rect x="40" y="130" width="210" height="16" rx="8"/></g>
+<g stroke="var(--acc2)" stroke-width="3" fill="none"><path d="M40 68H250"/><path d="M40 96H250"/><path d="M40 124H250"/></g>
+<path d="M150 30V96" stroke="var(--ink)" stroke-width="6" stroke-linecap="round"/>
+<g stroke="var(--mut)" stroke-width="1.5"><line x1="270" y1="40" x2="285" y2="40"/><line x1="250" y1="54" x2="285" y2="62"/><line x1="152" y1="60" x2="285" y2="92"/><line x1="250" y1="124" x2="285" y2="124"/></g>
+<g font-size="12" font-weight="700" fill="var(--ink)" font-family="Nunito,sans-serif"><text x="290" y="44">sarcolema</text><text x="290" y="66">miofibrila</text><text x="290" y="96">túbulo T</text><text x="290" y="124">retículo</text><text x="290" y="138">sarcoplasmático</text></g>
+<text x="30" y="178" font-size="12" fill="var(--mut)" font-family="Nunito,sans-serif">O fundo rosa é o sarcoplasma (citoplasma).</text></svg>
+<figcaption>Fibra muscular em corte: a miofibrila é feita de actina e miosina; o retículo guarda cálcio.</figcaption></figure>
+<p>Atenção: esteroides anabolizantes sem receita médica aumentam o músculo, mas podem causar problemas no coração, fígado, diabetes, agressividade e esterilidade.</p>
+</details>
+
+<details><summary>2. Os três tipos de músculo</summary>
+<div class="sc"><table><tr><th></th><th>Estriado esquelético</th><th>Estriado cardíaco</th><th>Liso</th></tr>
+<tr><th>Onde fica</th><td>Preso aos ossos</td><td>Coração (miocárdio)</td><td>Estômago, intestinos, útero, bexiga, pulmões, artérias, veias, olhos</td></tr>
+<tr><th>Controle</th><td>Voluntário</td><td>Involuntário</td><td>Involuntário</td></tr>
+<tr><th>Estrias</th><td>Sim</td><td>Sim</td><td>Não</td></tr>
+<tr><th>Contração</th><td>Rápida</td><td>Rápida e sem parar</td><td>Lenta</td></tr></table></div>
+<figure><svg viewBox="0 0 420 200" role="img" aria-label="Os três tipos de músculo">
+<defs><pattern id="s2" width="14" height="10" patternUnits="userSpaceOnUse"><rect width="14" height="10" fill="var(--fib)"/><rect x="5" width="4" height="10" fill="var(--fib2)"/></pattern></defs>
+<rect x="15" y="30" width="110" height="46" rx="8" fill="url(#s2)"/><rect x="15" y="84" width="110" height="46" rx="8" fill="url(#s2)"/>
+<g fill="var(--acc2)"><ellipse cx="40" cy="31" rx="7" ry="4"/><ellipse cx="75" cy="31" rx="7" ry="4"/><ellipse cx="105" cy="31" rx="7" ry="4"/><ellipse cx="55" cy="129" rx="7" ry="4"/><ellipse cx="95" cy="129" rx="7" ry="4"/></g>
+<polygon points="150,30 215,30 235,55 215,80 150,80" fill="url(#s2)"/><polygon points="215,30 275,30 275,80 215,80 235,55" fill="url(#s2)" opacity=".85"/><polygon points="235,100 275,100 275,150 235,150 215,125" fill="url(#s2)"/><polygon points="150,100 215,100 235,125 215,150 150,150" fill="url(#s2)" opacity=".85"/>
+<g stroke="var(--ink)" stroke-width="3"><line x1="215" y1="30" x2="235" y2="55"/><line x1="235" y1="55" x2="215" y2="80"/><line x1="215" y1="100" x2="235" y2="125"/><line x1="235" y1="125" x2="215" y2="150"/></g>
+<ellipse cx="180" cy="55" rx="9" ry="6" fill="var(--acc2)"/><ellipse cx="255" cy="125" rx="9" ry="6" fill="var(--acc2)"/>
+<g fill="var(--fib)"><path d="M300 60 Q340 20 400 60 Q340 100 300 60Z"/><path d="M300 130 Q340 90 400 130 Q340 170 300 130Z"/></g>
+<g fill="var(--acc2)"><ellipse cx="350" cy="60" rx="14" ry="7"/><ellipse cx="350" cy="130" rx="14" ry="7"/></g>
+<g font-size="13" font-weight="800" fill="var(--ink)" font-family="Nunito,sans-serif" text-anchor="middle"><text x="70" y="22">Esquelético</text><text x="212" y="22">Cardíaco</text><text x="350" y="22">Liso</text><text x="70" y="168" font-weight="600" font-size="11">vários núcleos na borda</text><text x="212" y="168" font-weight="600" font-size="11">ramificado, discos intercalares</text><text x="350" y="168" font-weight="600" font-size="11">sem estrias, 1 núcleo</text></g></svg>
+<figcaption>Verde-água = núcleo. As linhas escuras no músculo cardíaco são os discos intercalares.</figcaption></figure>
+</details>
+
+<details><summary>3. Músculo estriado esquelético</summary>
+<p>Fica ligado aos ossos e move o corpo conforme a nossa vontade. As miofibrilas ficam bem organizadas, e isso cria o desenho de “listras” (estrias) visto no microscópio. As fibras ficam organizadas em vários “pacotes”.</p>
+</details>
+
+<details><summary>4. De onde vem a energia do músculo</summary>
+<p>Contrair gasta muita energia, e o ATP que já está na fibra não basta para esforços fortes. Por isso a célula busca ATP em três fontes:</p>
+<ul><li><b>Fosfocreatina:</b> é quebrada sem oxigênio e dá energia rápida. Serve para explosão, como musculação ou corrida curta.</li><li><b>Fermentação láctica:</b> a glicose vira ácido láctico, sem oxigênio. Dá energia por alguns minutos (ex.: natação de 400 m). Depois, o fígado transforma o ácido láctico em glicose de novo.</li><li><b>Respiração aeróbica:</b> usa gás oxigênio (glicólise, ciclo de Krebs e cadeia respiratória, nas mitocôndrias). Dá energia por muito tempo, como em corridas longas.</li></ul>
+<div class="tip"><b>#FicaADica:</b> a creatina vira fosfocreatina, que ajuda a refazer o ATP rapidamente. Por isso a suplementação pode ajudar, mas só com orientação profissional.</div>
+<p><b>Fibras lentas (vermelhas, tipo I):</b> usam respiração aeróbica, têm muitas mitocôndrias e mioglobina (proteína que carrega oxigênio e dá a cor vermelha). Servem para atividades longas.</p>
+<p><b>Fibras rápidas (brancas, tipo II):</b> usam fosfocreatina e/ou fermentação láctica, são mais grossas e têm menos mitocôndrias. Servem para atividades intensas e curtas.</p>
+</details>
+
+<details><summary>5. Músculo estriado cardíaco</summary>
+<p>Forma o <b>miocárdio</b>, que move o coração. É involuntário e tem estrias como o esquelético, mas <b>não se cansa</b>: contrai sem parar.</p>
+<p>Os <b>discos intercalares</b> ligam uma fibra à outra e fazem todas contraírem juntas. Assim o coração tem força para bombear sangue para o corpo todo.</p>
+<p>Essas fibras ficam contraídas de 10 a 15 vezes mais tempo que as esqueléticas, porque têm mais cálcio (do retículo e do líquido de fora da célula). O <b>nó sinoatrial</b>, o marca-passo natural do coração, manda os impulsos que mantêm o ritmo. Por gastar tanta energia, essas fibras recebem oxigênio o tempo todo e têm muitas mitocôndrias.</p>
+</details>
+
+<details><summary>6. Como o músculo contrai</summary>
+<p>A unidade que contrai nos músculos estriados é o <b>sarcômero</b>. Em repouso, actina e miosina se sobrepõem um pouco. Na contração, a actina <b>desliza</b> sobre a miosina, a sobreposição aumenta e o sarcômero fica menor.</p>
+<figure><svg viewBox="0 0 420 270" role="img" aria-label="Sarcômero relaxado e contraído">
+<g font-size="13" fill="var(--ink)" font-family="Nunito,sans-serif"><text x="10" y="18" font-weight="800">Relaxado</text><text x="10" y="148" font-weight="800">Contraído</text></g>
+<g id="s1"><g stroke="var(--acc2)" stroke-width="3"><line x1="40" y1="45" x2="200" y2="45"/><line x1="40" y1="65" x2="200" y2="65"/><line x1="40" y1="85" x2="200" y2="85"/><line x1="380" y1="55" x2="220" y2="55"/><line x1="380" y1="75" x2="220" y2="75"/><line x1="380" y1="95" x2="220" y2="95"/></g>
+<g stroke="var(--fib2)" stroke-width="7"><line x1="130" y1="50" x2="290" y2="50"/><line x1="130" y1="70" x2="290" y2="70"/><line x1="130" y1="90" x2="290" y2="90"/></g>
+<g stroke="var(--ink)" stroke-width="4"><line x1="40" y1="30" x2="40" y2="110"/><line x1="380" y1="30" x2="380" y2="110"/></g></g>
+<g transform="translate(0,130)"><g stroke="var(--acc2)" stroke-width="3"><line x1="90" y1="45" x2="250" y2="45"/><line x1="90" y1="65" x2="250" y2="65"/><line x1="90" y1="85" x2="250" y2="85"/><line x1="330" y1="55" x2="170" y2="55"/><line x1="330" y1="75" x2="170" y2="75"/><line x1="330" y1="95" x2="170" y2="95"/></g>
+<g stroke="var(--fib2)" stroke-width="7" opacity=".85"><line x1="130" y1="50" x2="290" y2="50"/><line x1="130" y1="70" x2="290" y2="70"/><line x1="130" y1="90" x2="290" y2="90"/></g>
+<g stroke="var(--ink)" stroke-width="4"><line x1="90" y1="30" x2="90" y2="110"/><line x1="330" y1="30" x2="330" y2="110"/></g></g>
+<g font-size="12" fill="var(--ink)" font-family="Nunito,sans-serif"><text x="30" y="125" >Linha Z</text><text x="85" y="258" fill="var(--acc2)" font-weight="800">fino = actina</text><text x="200" y="258" fill="var(--fib2)" font-weight="800">grosso = miosina</text></g></svg>
+<figcaption>Na contração, a actina desliza sobre a miosina e o sarcômero (entre as duas linhas Z) fica menor.</figcaption></figure>
+<ul><li><b>1.</b> O neurônio libera neurotransmissores, que se ligam ao sarcolema e geram impulsos elétricos.</li><li><b>2.</b> O impulso corre pela membrana até o túbulo T, e o retículo sarcoplasmático solta cálcio.</li><li><b>3.</b> O cálcio se liga à troponina, que move a tropomiosina e libera o ponto de encaixe da actina. A “cabeça” da miosina se liga à actina.</li><li><b>4.</b> A quebra de ATP dá energia: as cabeças da miosina se curvam e puxam a actina, encurtando o sarcômero.</li><li><b>5.</b> As ligações se desfazem, o ponto de encaixe é bloqueado de novo, o cálcio volta ao retículo e o músculo relaxa.</li></ul>
+</details>
+
+<details><summary>7. Músculo liso</summary>
+<p>Faz movimentos involuntários: peristaltismo do sistema digestório, contrações do útero no parto, esvaziar a bexiga, respirar, mudar o diâmetro dos vasos e abrir ou fechar a pupila.</p>
+<ul><li>Sem estrias e com contração lenta.</li><li>Actina e miosina ficam espalhadas, presas em estruturas chamadas <b>corpos densos</b>.</li><li>Não tem túbulos T, e o retículo é escasso: o cálcio vem sobretudo do líquido de fora da célula.</li><li>Em vez da troponina, quem atua é a <b>calmodulina</b>. Com cálcio, ela ativa uma enzima que passa um fosfato do ATP para a miosina, e aí a actina e a miosina se ligam.</li><li>Um tecido conjuntivo com fibras reticulares une bem as células: quando uma contrai, o músculo todo contrai.</li></ul>
+</details>
+
+<details><summary>8. O sistema muscular</summary>
+<p>São cerca de 650 músculos esqueléticos, mais o músculo cardíaco e os lisos. Juntos, quase metade da massa do corpo.</p>
+<ul><li><b>Partes do músculo esquelético:</b> o meio (feixes musculares, a parte ativa) e as pontas (<b>tendões</b>, que ligam músculo a osso, cartilagem ou derme).</li><li><b>Coordenação motora:</b> controle dos vários músculos que participam de um movimento.</li><li><b>Antagonismo:</b> um músculo faz o movimento contrário ao do outro. Exemplo: bíceps dobra o antebraço (flexão) e tríceps estica (extensão). Quando um contrai, o outro relaxa.</li><li><b>Sinergismo:</b> músculos que ajudam outro a trabalhar. Exemplo: na flexão de braço atuam peitoral, deltoide, tríceps, latíssimo do dorso e reto abdominal.</li><li><b>Tônus muscular:</b> a tensão leve do músculo em repouso. Deixa a resposta mais rápida, ajuda o sangue a voltar ao coração e mantém a postura. Atividade física aumenta o tônus (hipertonia); sedentarismo diminui (hipotonia); estresse pode aumentar e causar dor.</li></ul>
+<figure><svg viewBox="0 0 420 215" role="img" aria-label="Bíceps e tríceps">
+<g id="arm"><rect x="60" y="20" width="26" height="90" rx="12" fill="var(--soft)" stroke="var(--line)" stroke-width="2"/>
+<g transform="rotate(-70 73 110)"><rect x="60" y="110" width="26" height="85" rx="12" fill="var(--soft)" stroke="var(--line)" stroke-width="2"/></g>
+<ellipse cx="97" cy="65" rx="17" ry="30" fill="var(--fib)"/><ellipse cx="49" cy="65" rx="7" ry="28" fill="var(--fib)" opacity=".3"/></g>
+<g transform="translate(220,0)"><rect x="60" y="20" width="26" height="90" rx="12" fill="var(--soft)" stroke="var(--line)" stroke-width="2"/>
+<rect x="60" y="110" width="26" height="85" rx="12" fill="var(--soft)" stroke="var(--line)" stroke-width="2"/>
+<ellipse cx="97" cy="65" rx="7" ry="28" fill="var(--fib)" opacity=".3"/><ellipse cx="53" cy="65" rx="15" ry="30" fill="var(--fib)"/></g>
+<g font-size="13" font-weight="800" fill="var(--ink)" font-family="Nunito,sans-serif"><text x="120" y="70">bíceps contraído</text><text x="10" y="210">Flexão do antebraço</text><text x="230" y="210">Extensão do antebraço</text><text x="325" y="70">tríceps contraído</text></g></svg>
+<figcaption>Antagonismo: quando o bíceps contrai, o tríceps relaxa, e vice-versa.</figcaption></figure>
+</details>
+<p style="color:var(--mut)">Desenhos esquemáticos feitos para este site, baseados nas figuras do capítulo.</p>
+</section>
+
+<section id="video">
+<div class="vid"><h2 style="margin-top:0">Vídeo de explicação</h2>
+<p>Este é o vídeo do Portal SAS sobre o conteúdo. O portal precisa de login e não deixa o vídeo ser colocado dentro de outro site, então ele abre em uma nova aba.</p>
+<a class="btn" target="_blank" rel="noopener noreferrer" href="https://app.portalsaseducacao.com.br/conteudo/materiais/689f9c90ef77bf437f03aec3/secoes/689f9c90ef77bf437f03aeb1?target=689f9c90ef77bf437f03aeb1">Abrir vídeo no portal</a>
+<p class="tip" style="margin-top:16px">Dica: assista com o resumo 6 (“Como o músculo contrai”) aberto e confira cada passo.</p></div>
+</section>
+
+<section id="flashcards">
+<p class="lead">Clique no cartão para virar e ver a resposta. Use os botões para trocar de cartão.</p>
+<button type="button" class="fc" id="fc"></button>
+<div class="fnav"><button type="button" id="fp">Anterior</button><span class="fcount" id="fn"></span><button type="button" id="fx">Próximo</button><button type="button" id="fsh">Embaralhar</button></div>
+</section>
+
+<section id="exercicios">
+<div class="score"><span id="sc">Acertos: 0 de 0</span><button type="button" id="rs">Recomeçar</button></div>
+<div id="qs"></div>
+</section>
+</div>
+<script>
+var Q=[
+["Treino rápido","Possibilita a movimentação do corpo.",["Cardíaco (C)","Esquelético (E)"],1,"Os músculos esqueléticos, ligados aos ossos, movem o corpo."],
+["Treino rápido","Consegue ser contraído ininterruptamente.",["Cardíaco (C)","Esquelético (E)"],0,"O cardíaco contrai sem parar e não chega à fadiga."],
+["Treino rápido","É responsável pelos movimentos do coração.",["Cardíaco (C)","Esquelético (E)"],0,"O miocárdio é o músculo do coração."],
+["Treino rápido","Compõe os músculos associados ao esqueleto.",["Cardíaco (C)","Esquelético (E)"],1,"São os músculos presos aos ossos."],
+["Treino rápido","Tem a contração controlada por um marca-passo natural.",["Cardíaco (C)","Esquelético (E)"],0,"O marca-passo é o nó sinoatrial, no coração."],
+["Treino rápido","Apresenta contração de acordo com a vontade do indivíduo.",["Cardíaco (C)","Esquelético (E)"],1,"O esquelético é voluntário."],
+["Treino rápido","O treinador orientou contrair o abdômen ao fazer exercícios de musculação para as costas.",["Antagonismo (A)","Sinergismo (S)"],1,"O abdômen ajuda no trabalho das costas: músculos que se ajudam = sinergismo."],
+["Treino rápido","Exercícios que fortalecem o bíceps braquial não trabalham tanto o tríceps braquial, e vice-versa.",["Antagonismo (A)","Sinergismo (S)"],0,"Bíceps e tríceps fazem movimentos contrários = antagonismo."],
+["Treino rápido","Pranchas e torções são mais desafiadoras, pois envolvem muitos músculos.",["Antagonismo (A)","Sinergismo (S)"],1,"Vários músculos ajudando juntos = sinergismo."],
+["Questão 1 (PUC-Adaptada)","Afirmações sobre o tecido muscular:<br>I. Encontra-se em órgãos viscerais e nas paredes dos vasos sanguíneos.<br>II. Constitui a maior parte da musculatura dos vertebrados.<br>III. Apresenta miofilamentos de actina e de miosina.<br>IV. Possui numerosas estrias transversais.<br>V. Contrai-se sempre involuntariamente.<br>Qual alternativa classifica corretamente cada tipo (esquelético, cardíaco, não estriado)?",["a) I, IV | I, III | II, V","b) I, IV | I, III | II, III, V","c) I, III, IV | III, IV | II, IV, V","d) II, III, IV | III, IV, V | I, III, V","e) II, III, V | I, IV, V | I, III"],3,"Esquelético: II, III, IV. Cardíaco: III, IV, V. Não estriado (liso): I, III, V."],
+["Questão 2 (PUC)","I. Não estriados, responsáveis pelo peristaltismo.<br>II. Estriados, responsáveis pelos movimentos do esqueleto.<br>III. Cardíaco, responsável pelos movimentos de sístole e diástole.<br>Precisam estar em pares antagônicos para funcionar bem os músculos citados em:",["I, somente.","II, somente.","I e III, somente.","II e III, somente.","I, II e III."],1,"Só os esqueléticos trabalham em pares antagônicos, como bíceps e tríceps."],
+["Questão 3 (ENEM)","Aves migratórias como garças, gansos e patos selvagens têm os músculos vermelhos bem desenvolvidos, com ampla rede de vasos sanguíneos. Nas viagens longas, esses músculos favorecem:",["a execução de manobras.","o metabolismo corpóreo elevado.","a manutenção da aerodinâmica.","o deslocamento a grandes velocidades.","a capacidade de voo em grandes altitudes."],1,"Músculos vermelhos usam respiração aeróbica, com muito oxigênio e energia por longo tempo."],
+["Questão 4 (FUVEST-Adaptada)","Uma pessoa sedentária desmaiou depois de correr cerca de 800 m de uma prova de 1 500 m, por falta de oxigênio no cérebro. Nos músculos dela deve haver acúmulo de:",["glicose.","glicogênio.","monóxido de carbono.","ácido láctico.","etanol."],3,"Sem oxigênio suficiente, as células fazem fermentação láctica e o ácido láctico se acumula."],
+["Questão 5 (ACAFE)","Nos músculos, uma organela funciona como reservatório de íons cálcio, necessários à contração. Qual é a organela e sua ação?",["Complexo golgiense, sintetizado principalmente no fígado, atuando no arco reflexo, típico da resposta patelar.","Retículo granuloso, derivado da ação metabólica dos gliceraldeídos, atuando também na resposta imunológica.","Plasmalema, participante ativo e reativo das membranas animais, conferindo proteção a agentes nocivos.","Retículo não granuloso (liso), também chamado de retículo sarcoplasmático, atuando na regulação e acúmulo do fluxo desses íons nas células musculares estriadas."],3,"O retículo sarcoplasmático guarda o cálcio e o libera na hora de contrair."],
+["Questão 6 (FUVEST)","Caracterize o músculo cardíaco quanto à estrutura e ao movimento.",["Fibras com 1 ou 2 núcleos, estrias transversais e discos intercalares. Contração rápida e involuntária (sistema nervoso autônomo).","Fibras com apenas 1 núcleo, estrias transversais e discos intercalares. Contração lenta e involuntária.","Fibras com 1 ou 2 núcleos, sem estrias transversais. Contração lenta e voluntária.","Fibras com apenas 2 núcleos, sem discos intercalares. Contração rápida e voluntária.","Fibras com 1 ou 2 núcleos, estrias transversais e discos intercalares. Contração rápida e voluntária."],0,"O cardíaco é estriado, tem discos intercalares e contrai rápido e sem a nossa vontade."],
+["Questão 7 (ACAFE-Adaptada)","Actina e miosina participam da contração muscular, que é possível devido ao:",["alongamento das miofibrilas, constituídas da proteína miosina.","manutenção das triofibrilas, em que a miosina e a tropomiosina são as mais abundantes.","encurtamento das miofibrilas, constituídas de várias proteínas, em que a actina e a miosina são as mais abundantes.","achatamento das miofibrilas, em que a actina e a troponina são as mais abundantes."],2,"Na contração as miofibrilas encurtam, e as proteínas mais abundantes são actina e miosina."],
+["Questão 8 (UFPR)","Sobre a contração muscular esquelética, é correto afirmar que:",["o sistema contrátil depende de íons Ca2+ no mioplasma, que altera as células actina e miosina.","os estímulos nervosos liberam neurotransmissores na fenda sináptica, o que leva à despolarização da membrana da célula muscular.","a actina e a miosina são liberadas na fenda sináptica, gerando um potencial de ação.","o deslizamento das células de actina sobre as de miosina é iniciado pela liberação de ATP no sarcômero.","a despolarização da miosina promove a liberação passiva de Ca2+ até a membrana da actina."],1,"O neurônio libera neurotransmissores, que geram o impulso elétrico no sarcolema. As outras alternativas misturam estruturas (actina e miosina são proteínas, não células)."],
+["Questão 10 (UFTM-Adaptada)","João venceu o salto com vara e Pedro venceu a maratona. Processos de energia: I. reserva de ATP; II. reserva de fosfocreatina; III. reserva de glicogênio; IV. ATP pela respiração aeróbica. Nos músculos:",["de João e de Pedro, a energia veio só do processo I.","de João e de Pedro, a energia veio só do processo IV.","de João, predominaram os processos I e II; de Pedro, predominou o IV.","de ambos, todos os processos, predominando o IV.","de ambos, todos os processos, predominando o III para João e o IV para Pedro."],2,"Salto é esforço curto e explosivo (ATP e fosfocreatina). Maratona é longa (respiração aeróbica)."]
+];
+var done=0,hit=0,tot=Q.length;
+function upd(){document.getElementById("sc").textContent="Acertos: "+hit+" de "+tot+" (respondidas: "+done+")"}
+function build(){done=0;hit=0;var c=document.getElementById("qs");c.innerHTML="";
+Q.forEach(function(q,i){var d=document.createElement("div");d.className="q";
+d.innerHTML="<h3>"+q[0]+"</h3><p>"+q[1]+"</p>";
+var ex=document.createElement("p");ex.className="ex";ex.hidden=true;ex.textContent=q[4];
+var bs=[];
+q[2].forEach(function(t,k){var b=document.createElement("button");b.type="button";b.className="o";b.textContent=t;
+b.onclick=function(){bs.forEach(function(x){x.disabled=true});
+bs[q[3]].classList.add("ok");done++;
+if(k===q[3]){hit++;ex.textContent="Certo! "+q[4]}else{b.classList.add("no");ex.textContent="Quase. "+q[4]}
+ex.hidden=false;upd()};
+bs.push(b);d.appendChild(b)});
+d.appendChild(ex);c.appendChild(d)});upd()}
+build();
+document.getElementById("rs").onclick=build;
+var T=["resumos","video","flashcards","exercicios"];
+function show(t){if(T.indexOf(t)<0)t="resumos";
+T.forEach(function(n){document.getElementById(n).classList.toggle("on",n===t)});
+document.querySelectorAll("nav button").forEach(function(b){b.setAttribute("aria-selected",b.dataset.t===t)});
+try{history.replaceState(null,"","#"+t)}catch(e){}}
+document.querySelectorAll("nav button").forEach(function(b){b.onclick=function(){show(b.dataset.t);window.scrollTo(0,0)}});
+show((location.hash||"").slice(1));
+var F=[
+["O que são fibras musculares (miócitos)?","Células alongadas dos tecidos musculares, com capacidade de contração e distensão."],
+["Quais proteínas permitem a contração das fibras?","Actina e miosina, que juntas formam os miofilamentos."],
+["O que é o sarcolema?","A membrana plasmática da fibra muscular."],
+["O que é o sarcoplasma?","O citoplasma da fibra muscular."],
+["Para que serve o retículo sarcoplasmático?","É o retículo endoplasmático que armazena íons cálcio, necessários à contração."],
+["O que são os túbulos T?","Invaginações do sarcolema, importantes para a contração muscular."],
+["Músculo estriado esquelético: onde fica e como é controlado?","Fica nos músculos ligados aos ossos. O controle é voluntário e a contração é rápida."],
+["Músculo estriado cardíaco: como é?","Forma o miocárdio. Controle involuntário, contração rápida, com estrias, e contrai sem parar, sem fadiga."],
+["Músculo liso: principais características?","Sem estrias, contração lenta e controle involuntário. Está em vísceras, vasos, pulmões, íris e outros."],
+["Para que servem os discos intercalares?","São junções que ligam uma fibra cardíaca à outra e fazem todas contraírem ao mesmo tempo."],
+["O que é o nó sinoatrial?","O marca-passo natural do coração: gera os impulsos elétricos que mantêm o ritmo."],
+["O que é o sarcômero?","A unidade básica contrátil dos músculos estriados."],
+["O que acontece com o sarcômero na contração?","A actina desliza sobre a miosina, a sobreposição aumenta e o sarcômero diminui."],
+["Qual o papel do cálcio na contração?","Liga-se à troponina, que desloca a tropomiosina e libera o sítio de ligação da actina com a miosina."],
+["O que é a degradação da fosfocreatina?","Quebra anaeróbica da fosfocreatina em creatina, que dá energia rápida. Usada em atividades de explosão, como musculação."],
+["O que é a fermentação láctica no músculo?","A glicose vira ácido láctico, dando ATP por alguns minutos. O fígado depois converte o ácido láctico em glicose."],
+["O que é a respiração celular aeróbica?","Glicólise, ciclo de Krebs e cadeia respiratória, com oxigênio, nas mitocôndrias. Dá ATP por muito tempo (corridas longas)."],
+["Fibras lentas (tipo I): características?","Vermelhas, usam respiração aeróbica, têm muitas mitocôndrias e mioglobina. Servem para atividades prolongadas."],
+["Fibras rápidas (tipo II): características?","Brancas, usam fosfocreatina e/ou fermentação láctica, são mais calibrosas e têm menos mitocôndrias. Servem para atividades intensas e curtas."],
+["O que é a mioglobina?","Proteína que transporta gás oxigênio nos músculos e dá a cor avermelhada às fibras lentas."],
+["Qual proteína age no lugar da troponina no músculo liso?","A calmodulina. Com cálcio, ativa uma enzima que passa um fosfato do ATP para a cabeça da miosina."],
+["O que são os corpos densos?","Estruturas das fibras lisas onde os miofilamentos e filamentos intermediários ficam presos."],
+["O que são tendões?","Estruturas de tecido conjuntivo denso modelado que ligam os músculos aos ossos (às vezes à cartilagem ou à derme)."],
+["O que é antagonismo muscular?","Quando um músculo faz o movimento contrário ao de outro. Exemplo: bíceps (flexão) e tríceps (extensão)."],
+["O que é sinergismo muscular?","Quando músculos atuam para ajudar o trabalho de outro. Exemplo: na flexão de braço atuam peitoral, deltoide, tríceps, latíssimo do dorso e reto abdominal."],
+["O que é tônus muscular?","Estado de tensão de um músculo em repouso, mantido por estímulos do sistema nervoso. Ajuda na postura e no retorno do sangue ao coração."],
+["Hipertonia e hipotonia: qual a diferença?","Atividade física regular aumenta o tônus (hipertonia). O sedentarismo diminui o tônus (hipotonia)."],
+["Quantos músculos esqueléticos tem o corpo humano?","Cerca de 650. O sistema muscular equivale a quase metade da massa corporal."]
+];
+var fi=0,fb=false;
+function fr(){var e=document.getElementById("fc");e.className="fc"+(fb?" back":"");e.innerHTML="<small>"+(fb?"Resposta":"Pergunta")+"</small><span>"+F[fi][fb?1:0]+"</span>";document.getElementById("fn").textContent=(fi+1)+" de "+F.length}
+function go(d){fi=(fi+d+F.length)%F.length;fb=false;fr()}
+document.getElementById("fc").onclick=function(){fb=!fb;fr()};
+document.getElementById("fp").onclick=function(){go(-1)};
+document.getElementById("fx").onclick=function(){go(1)};
+document.getElementById("fsh").onclick=function(){for(var k=F.length-1;k>0;k--){var r=Math.floor(Math.random()*(k+1)),t=F[k];F[k]=F[r];F[r]=t}fi=0;fb=false;fr()};
+fr();
+var root=document.documentElement;
+document.getElementById("tb").onchange=function(){root.dataset.theme=this.checked?"dark":"light"};
+</script>
+</body>
+</html>
